@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lcy.mapper.AreaMapper">
+	<select id="getAddressList" resultType="address">
+		select * from t_address
+	</select>
+	
+	<select id="findProvince" resultType="area">
+		select * from t_area where parentid = 0
+	</select>
+	
+	<select id="findNext" resultType="area">
+		select * from t_area where parentid = ${id}
+	</select>
+</mapper>
